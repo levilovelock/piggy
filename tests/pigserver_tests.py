@@ -32,7 +32,59 @@ class FlaskrTestCase(unittest.TestCase):
         assert self._test_string("omelet") == "omeletyay"
         assert self._test_string("are") == "areyay"
 
-    def test_paragraph_string(self):
+    def test_single_quoted_consonant_string(self):
+        assert self._test_string("'quoted'") == "'uotedqay'"
+
+    def test_proceeding_consonant_elipses(self):
+        assert self._test_string("bare...") == "arebay..."
+
+    def test_apostrophe_in_consonant_string(self):
+        assert self._test_string("don't") == "on'tday"
+
+    def test_fullstop_end_of_consonant_string(self):
+        assert self._test_string("bed.") == "edbay."
+
+    def test_exclamation_end_of_consonant_string(self):
+        assert self._test_string("gamma!") == "ammagay!"
+
+    def test_comma_end_of_consonant_string(self):
+        assert self._test_string("clock,") == "ockclay,"
+
+    def test_capitlisation_consonant_string(self):
+        assert self._test_string("BarBaRiAN") == "arBaRiANBay"
+        assert self._test_string("BArBaRiAn") == "ArBaRiAnBay"
+        assert self._test_string("BARBARIAn") == "ARBARIAnBay"
+        assert self._test_string("bARBARIAN") == "ARBARIANbay"
+        assert self._test_string("baRBARIAN") == "aRBARIANbay"
+        assert self._test_string("BARBARIAn") == "ARBARIAnBay"
+
+    def test_single_quoted_vowel_string(self):
+        assert self._test_string("'early'") == "'earlyyay'"
+
+    def test_proceeding_vowel_elipses(self):
+        assert self._test_string("are...") == "areyay..."
+
+    def test_apostrophe_in_vowel_string(self):
+        assert self._test_string("eve's") == "eve'syay"
+
+    def test_fullstop_end_of_vowel_string(self):
+        assert self._test_string("eddy.") == "eddyyay."
+
+    def test_exclamation_end_of_vowel_string(self):
+        assert self._test_string("apricot!") == "apricotyay!"
+
+    def test_comma_end_of_vowel_string(self):
+        assert self._test_string("orange,") == "orangeyay,"
+
+    def test_capitlisation_vowel_string(self):
+        assert self._test_string("UgANDa") == "UgANDayay"
+        assert self._test_string("ugANDa") == "ugANDayay"
+        assert self._test_string("UGANDa") == "UGANDayay"
+        assert self._test_string("UgANDA") == "UgANDAyay"
+        assert self._test_string("UgANdA") == "UgANdAyay"
+        assert self._test_string("ugAnDa") == "ugAnDayay"
+
+    def test_paragraph_string_with_newlines(self):
         sample_input = """Today I went for a nice long walk in a park. There was a slight breeeze which shook the autmn leaves and frosted the tips of my ears. I enjoyed the piercing touch of my long friend right through to my lungs.
 
         When I was a child my Nana used to tell me it was 'Jack Frost' who laid those icey sheets... Oh what a chill that drove!"""
