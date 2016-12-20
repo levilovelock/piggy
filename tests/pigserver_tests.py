@@ -10,7 +10,7 @@ class FlaskrTestCase(unittest.TestCase):
         self.app = pigserver.app.test_client()
 
     # ====================================================
-    # Acceptance Tests
+    # Unit Tests
     # ====================================================
 
     def _test_string(self, data):
@@ -94,6 +94,21 @@ class FlaskrTestCase(unittest.TestCase):
 
         print self._test_string(sample_input)
         assert self._test_string(sample_input) == expected_output
+
+    # ====================================================
+    # Acceptance Tests
+    # ====================================================
+    def test_return_400_when_no_message_passed(self):
+        assert False
+
+    def test_return_404_when_trying_invalid_endpoints(self):
+        assert False
+
+    def test_return_404_when_trying_unsupported_methods(self):
+        assert False
+
+    def test_return_200_with_response_for_valid_request(self):
+        assert False
 
 if __name__ == '__main__':
     unittest.main()
