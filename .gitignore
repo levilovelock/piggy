@@ -2,3 +2,4 @@ piggy.iml
 *.pyc
 venv/
 .idea/
+*.egg-info

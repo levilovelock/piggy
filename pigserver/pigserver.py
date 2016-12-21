@@ -90,35 +90,10 @@ def translate_handler():
         app.logger.error("An error occured from /translate: " + str(e))
         abort(500)
 
-def fuu():
-    rawstring = """Today I went for a nice long walk in a park. There was a slight breeeze which shook the autmn leaves and frosted the tips of my ears. I enjoyed the piercing touch of my long friend right through to my lungs.
-
-    When I was a child my Nana used to tell me it was 'Jack Frost' who laid those icey sheets... Oh what a chill that drove!"""
-    refined = "odayTay Iyay entway orfay ayay icenay onglay alkway inyay ayay arkpay. ereThay asway ayay ightslay eeezebray ichwhay ookshay ethay autmnyay eaveslay andyay ostedfray ethay ipstay ofyay myay earsyay. Iyay enjoyedyay ethay iercingpay ouchtay ofyay myay onglay iendfray ightray oughthray otay myay ungslay. enWhay Iyay asway ayay ildchay myay anaNay usedyay otay elltay emay ityay asway 'ackJay ostFray' owhay aidlay osethay iceyyay eetsshay... Ohyay atwhay ayay illchay atthay ovedray!"
-    result = ""
-    rawlist = rawstring.split()
-    refinedlist = refined.split()
-
-    if len(rawlist) != len(refinedlist):
-        print "A fatal error has occured"
-        exit(1)
-
-    numtokens = len(refinedlist)
-    for i in range(0, numtokens):
-        token_index = rawstring.find(rawlist[0])
-        result = result + rawstring[:token_index] + refinedlist[0]
-        # If not on last iteration, trim token lists and raw string
-        if i < numtokens - 1:
-            rawstring = rawstring[token_index + len(rawlist[0]):]
-            rawlist = rawlist[1:]
-            refinedlist = refinedlist[1:]
-
-    print "RESULT: " + result
-
 
 if __name__ == "__main__":
-    # fuu()
-    app.run()
-    # raw_tokens = message.split()
-    # processed_tokens = []
+    if app.config['TESTING'] == True:
+        app.run(host="0.0.0.0", port=int("8080"))
+    else:
+        app.run(host="0.0.0.0", port=int("80"))
 

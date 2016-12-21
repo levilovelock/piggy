@@ -1,1 +1,1 @@
-from .pigserver import app
+from pigserver import app
